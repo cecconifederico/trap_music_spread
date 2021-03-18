@@ -8,7 +8,7 @@ let list-gender map [[x] -> (item 28 x)] populations ;; 27th column, school-perf
     let one-probability (length list-one-gender) / (length list-gender)
     set gender lput (list z one-probability) gender
     ])
-show gender
+;; show gender
 
   let list-performance map [[x] -> (item 27 x)] populations ;; 27th column, school-performance
   set list-performance filter [[y] -> y > -1 ] list-performance
@@ -18,7 +18,7 @@ show gender
     let one-probability (length list-one-performance) / (length list-performance)
     set school-performance lput (list z one-probability) school-performance
     ])
-show school-performance
+;; show school-performance
 
   let list-competence map [[x] -> (item 2 x)] populations
   set list-competence filter [[y] -> y > -1 ] list-competence
@@ -28,7 +28,7 @@ show school-performance
     let one-probability (length list-one-competence) / (length list-competence)
     set music-competence lput (list z one-probability) music-competence
     ])
-  show music-competence
+ ;; show music-competence
 
   let list-play map [[x] -> (item 3 x)] populations
   set list-play filter [[y] -> y > -1 ] list-play
@@ -38,7 +38,7 @@ show school-performance
     let one-probability (length list-one-play) / (length list-play)
     set band-play lput (list z one-probability) band-play
     ])
-  show band-play
+ ;; show band-play
 
   let list-tips map [[x] -> (item 1 x)] populations
   set list-tips filter [[y] -> y > -1 ] list-tips
@@ -48,7 +48,7 @@ show school-performance
     let one-probability (length list-one-tips) / (length list-tips)
     set music-tips lput (list z one-probability) music-tips
     ])
-  show music-tips
+ ;; show music-tips
 
    let list-time map [[x] -> (item 14 x)] populations
   set list-time filter [[y] -> y > -1 ] list-time
@@ -58,7 +58,7 @@ show school-performance
     let one-probability (length list-one-time) / (length list-time)
     set music-time lput (list z one-probability) music-time
     ])
-  show music-time
+ ;; show music-time
 
 
   let list-preferences map [[x] -> (item 13 x)] populations
@@ -69,7 +69,7 @@ show school-performance
     let one-probability (length list-one-preferences) / (length list-preferences)
     set music-preferences lput (list z one-probability) music-preferences
     ])
-  show music-preferences
+ ;; show music-preferences
 
 
   let list-share map [[x] -> (item 15 x)] populations
@@ -80,7 +80,7 @@ show school-performance
     let one-probability (length list-one-share) / (length list-share)
     set social-share lput (list z one-probability) social-share
     ])
-  show social-share
+  ;; show social-share
 
 
   let list-interview map [[x] -> (item 16 x)] populations
@@ -90,7 +90,7 @@ show school-performance
     let one-probability (length list-one-interview) / (length list-interview)
     set music-interview lput (list z one-probability) music-interview
     ])
-  show music-interview
+ ;;  show music-interview
 
     let list-live map [[x] -> (item 17 x)] populations
   set music-live []
@@ -99,7 +99,7 @@ show school-performance
     let one-probability (length list-one-live) / (length list-live)
     set music-live lput (list z one-probability) music-live
     ])
-  show music-live
+ ;; show music-live
 
     let list-quotes map [[x] -> (item 18 x)] populations
   set list-quotes filter [[y] -> y > -1 ] list-quotes
@@ -109,7 +109,7 @@ show school-performance
     let one-probability (length list-one-quotes) / (length list-quotes)
     set music-quotes lput (list z one-probability) music-quotes
     ])
-  show music-quotes
+ ;; show music-quotes
 
     let list-dress map [[x] -> (item 19 x)] populations
   set music-dress []
@@ -118,7 +118,7 @@ show school-performance
     let one-probability (length list-one-dress) / (length list-dress)
     set music-dress lput (list z one-probability) music-dress
     ])
-  show music-dress
+ ;; show music-dress
 
   let list-age map [[x] -> (item 29 x)] populations
   set list-age filter [[y] -> y > -1 ] list-age
@@ -128,7 +128,7 @@ show school-performance
     let one-probability (length list-one-age) / (length list-age)
     set age lput (list z one-probability) age
     ])
-  show age
+  ;; show age
 
 let list-mom map [[x] -> (item 31 x)] populations
   set mom-study []
@@ -137,7 +137,7 @@ let list-mom map [[x] -> (item 31 x)] populations
     let one-probability (length list-one-mom) / (length list-mom)
     set mom-study lput (list z one-probability) mom-study
     ])
-  show mom-study
+ ;; show mom-study
 
   let list-dad map [[x] -> (item 32 x)] populations
   set dad-study []
@@ -146,9 +146,9 @@ let list-mom map [[x] -> (item 31 x)] populations
     let one-probability (length list-one-dad) / (length list-dad)
     set dad-study lput (list z one-probability) dad-study
     ])
-  show dad-study
+ ;; show dad-study
   
-  show "class"
+;;  show "class"
   let list-class map [[x] -> (item 33 x)] populations
   set list-class filter [[y] -> y != "#NULL!" ] list-class
   set class []
@@ -157,6 +157,6 @@ let list-mom map [[x] -> (item 31 x)] populations
     let one-probability (length list-one-class) / (length list-class)
     set class lput (list z one-probability) class
     ])
-  show class
+;;  show class
   
 end

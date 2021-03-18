@@ -31,15 +31,16 @@ __includes [ "segmentations.nls" ]
 
 
 to load-populations
-  set populations but-first csv:from-file "db_survey_opinions.csv"
+  set populations but-first csv:from-file "./database/db_survey_opinions_ver210318.csv"
 end
 
 to load-nodes
-  set nodes but-first csv:from-file "db_survey_nodes.csv"
+  set nodes but-first csv:from-file "./database/db_survey_nodes_ver210318.csv"
 end
 
 to load-edges
-  set edges  but-first csv:from-file "db_survey_edges.csv"
+  set edges  but-first csv:from-file "./database/db_dati_sociometrici_survey_ver210318.csv"
+  set edges filter [x -> (item 4  x) = question] edges
 end
 
 to setup
@@ -51,13 +52,17 @@ to setup
   setup-turtles
   if network_modality = "survey" [
     setup-network-survey
+    repeat 30 [ layout-spring turtles links 0.2 5 1 ]
   ]
   if network_modality = "mix" [
-   setup-network-mix
+    setup-network-mix
+    repeat 30 [ layout-spring turtles links 0.2 5 1 ]
   ]
   if network_modality = "random" [
     setup-network-random
+    repeat 30 [ layout-spring turtles links 0.2 5 1 ]
   ]
+
   reset-ticks
 end
 
@@ -65,7 +70,7 @@ to setup-network-survey
   let cont 0
   repeat (length nodes) [
     let one-agent one-of turtles with [agent-node = 0]
-    ask one-agent [set agent-node item 0 (item cont nodes)]
+    ask one-agent [set agent-node item 1 (item cont nodes)]
     set cont cont + 1
   ]
   ask turtles with [agent-node = 0][
@@ -75,12 +80,14 @@ to setup-network-survey
 
   foreach edges [[x] ->
     let i item 1 x
-    let j item 0 x
+    let j item 2 x
     let agent-i one-of turtles with [agent-node = i]
     let agent-j one-of turtles with [agent-node = j]
-    show agent-i show agent-j
-    ask agent-i [
-      create-link-to agent-j
+
+    if agent-i != nobody and agent-j != nobody [
+     ask agent-i [
+       create-link-to agent-j
+     ]
     ]
   ]
 
@@ -149,6 +156,10 @@ end
 to setup-turtles
 
   create_segmentations
+
+  if network_modality = "survey" [
+   set N 500
+  ]
 
   create-turtles N
   [
@@ -445,10 +456,10 @@ SLIDER
 189
 N
 N
-1
+2
 500
 114.0
-1
+10
 1
 NIL
 HORIZONTAL
@@ -485,9 +496,9 @@ HORIZONTAL
 
 BUTTON
 33
-97
+95
 96
-130
+128
 NIL
 go
 T
@@ -590,6 +601,21 @@ actual_genere
 0
 8
 5.0
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+20
+60
+192
+93
+question
+question
+1
+7
+7.0
 1
 1
 NIL
