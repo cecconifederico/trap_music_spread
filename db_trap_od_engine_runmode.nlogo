@@ -1,5 +1,5 @@
 extensions [CSV rnd]
-turtles-own [l-opinion i-gender i-age i-performance i-competence i-play i-preferences i-tips i-time i-share i-interview i-live i-quotes i-dress i-mom i-dad i-class i-mu i-theta agent-node agent-opinion0]
+turtles-own [l-opinion i-gender i-age i-performance i-competence i-play i-preferences i-tips i-time i-share i-interview i-live i-quotes i-dress i-mom i-dad i-class i-mu i-theta agent-node agent-opinion0 nome-opinione]
 ;; l vuol dire lista
 ;; i-mu e i-theta diventano attive solo se diventano eterogenee
 
@@ -232,9 +232,11 @@ to go
 ]
   ask turtles
   [
-    set agent-opinion0 (sentence agent-node "_" last item 0 l-opinion)]
+    set agent-opinion0 (sentence agent-node "_" last item 0 l-opinion)
+  ]
   diffusion
   colour
+
   tick
 end
 
@@ -257,8 +259,11 @@ to diffusion
       [
        set receiver one-of other turtles with [link-neighbor? myself]
       ]
+      let dummy talker
+      set talker receiver
+      set receiver dummy
     ]
-    if receiver != nobody [
+    if receiver != nobody and talker != nobody [
 
     ask talker
     [
