@@ -544,7 +544,7 @@ mu
 mu
 0
 1
-0.1
+1.0
 0.05
 1
 NIL
@@ -1001,6 +1001,57 @@ NetLogo 6.1.1
     <enumeratedValueSet variable="modality">
       <value value="&quot;random_opinions&quot;"/>
       <value value="&quot;from_survey_opinions&quot;"/>
+    </enumeratedValueSet>
+  </experiment>
+  <experiment name="surveynetwork_randomopinion" repetitions="10" runMetricsEveryStep="false">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>count turtles</metric>
+    <metric>[agent-opinion0] of turtles</metric>
+    <enumeratedValueSet variable="mu">
+      <value value="0.1"/>
+      <value value="0.2"/>
+      <value value="0.3"/>
+      <value value="0.4"/>
+      <value value="0.5"/>
+      <value value="0.6"/>
+      <value value="0.7"/>
+      <value value="0.8"/>
+      <value value="0.9"/>
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="N">
+      <value value="114"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="question">
+      <value value="7"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="K">
+      <value value="0.01"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="theta">
+      <value value="0.1"/>
+      <value value="0.2"/>
+      <value value="0.3"/>
+      <value value="0.4"/>
+      <value value="0.5"/>
+      <value value="0.6"/>
+      <value value="0.7"/>
+      <value value="0.8"/>
+      <value value="0.9"/>
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="modality">
+      <value value="&quot;random_opinions&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="network_modality">
+      <value value="&quot;survey&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="K0">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="actual_genere">
+      <value value="5"/>
     </enumeratedValueSet>
   </experiment>
 </experiments>
